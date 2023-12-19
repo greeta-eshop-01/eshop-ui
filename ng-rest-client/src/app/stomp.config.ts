@@ -1,7 +1,7 @@
 import { InjectableRxStompConfig } from '@stomp/ng2-stompjs';
 // TODO env
 export const stompConfig: InjectableRxStompConfig = {
-  brokerURL: 'ws://localhost:9000/order-notifications',
+  brokerURL: 'ws://localhost:9000/order-notifications/endpoint',
 
   // How often to heartbeat?
   // Interval in milliseconds, set to 0 to disable

@@ -14,7 +14,7 @@ export const Product = ({product, addToCart}: Props) => (
       <Image name={product.image}/>
     </div>
     <div className="d-flex flex-column justify-content-center align-items-center">
-      <button className="col-12 btn btn-primary" onClick={() => addToCart(product)}>Add to card</button>
+      <button className="col-12 btn btn-primary" onClick={() => addToCart(product)}>Add to cart</button>
       <Link to={`/product/${product.id}`} className={styles.name}>{product.name}</Link>
       <div className={styles.price}>
         <span>$</span>

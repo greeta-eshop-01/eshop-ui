@@ -15,7 +15,7 @@ export const LoginButton = () => {
 
   const logout = () => {
     if (loggedIn) {
-      auth.signOut().then(() => navigate('/'));
+      auth.signOutRedirect().then(() => navigate('/'));
     }
   };
 

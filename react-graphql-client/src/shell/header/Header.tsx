@@ -26,9 +26,30 @@ export const Header = () => {
   }, [loggedIn, getUserBasket]);
 
   const isAdmin = () => {
-    return loggedIn && auth.userData?.profile.roles
-      .some((role: string) => role === "ROLE_admin");
+    return loggedIn && roles().some((role: string) => role === "ESHOP_MANAGER");
   };
+
+  const roles = () => {
+    return loggedIn ? decodeToken().resource_access['eshop-app'].roles
+      : [];
+  }
+
+  const decodeToken = () => {
+    const _decodeToken = (_token: string) => {
+      try {
+        return JSON.parse(atob(_token));
+      } catch {
+        return;
+      }
+    };
+    return auth.userData?.access_token
+      .split('.')
+      .map(token => _decodeToken(token))
+      .reduce((acc, curr) => {
+        if (!!curr) acc = { ...acc, ...curr };
+        return acc;
+      }, Object.create(null));
+  }  
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">

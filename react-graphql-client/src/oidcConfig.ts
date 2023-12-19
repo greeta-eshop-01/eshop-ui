@@ -7,7 +7,7 @@ export const oidcConfig: AuthProviderProps = {
   authority: `${process.env.REACT_APP_AUTH_SERVER_URL}/realms/eshop-realm`,
   clientId: 'eshop-app',
   redirectUri: window.location.origin + '/',
-  scope: 'openid profile email basket orders webshoppingagg order.notifications',
+  scope: '',
   responseType: 'code',
   autoSignIn: true,
   loadUserInfo: true,

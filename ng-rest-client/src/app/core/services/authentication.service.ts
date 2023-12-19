@@ -36,7 +36,7 @@ export class AuthenticationService {
   }
 
   public isAdmin(): boolean {
-    return this.roles().some(role => role === 'ROLE_admin');
+    return this.roles().some(role => role === 'ESHOP_MANAGER');
   }
 
   public login(): Observable<boolean> {
@@ -49,8 +49,25 @@ export class AuthenticationService {
 
   private roles(): string[] {
     return this.isLoggedIn()
-      ? (this.oAuthService.getIdentityClaims() as any).roles
+      ? this.decodeToken(this.oAuthService.getAccessToken()).resource_access['eshop-app'].roles
       : [];
+  }
+
+  private decodeToken(token) {
+    const _decodeToken = (token) => {
+      try {
+        return JSON.parse(atob(token));
+      } catch {
+        return;
+      }
+    };
+    return token
+      .split('.')
+      .map(token => _decodeToken(token))
+      .reduce((acc, curr) => {
+        if (!!curr) acc = { ...acc, ...curr };
+        return acc;
+      }, Object.create(null));
   }
 
 }

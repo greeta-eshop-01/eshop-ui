@@ -35,7 +35,7 @@ function initializeOAuth(
   };
 }
 
-const apiGatewayUrls = ['/basket/api', '/order-processing/api', '/catalog-command/api', '/catalog-query/api', '/rating/api']
+const apiGatewayUrls = ['/flux-gateway/api/v1', '/basket/api', '/order-processing/api', '/catalog-command/api', '/catalog-query/api', '/rating/api']
   .map(path => `${environment.apiUrl}${path}`);
 
 @NgModule({
