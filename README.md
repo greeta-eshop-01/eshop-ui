@@ -1,46 +1,129 @@
-# Getting Started with Create React App
+### 📖 Full-Stack Templates For Spring Boot Developers
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### ✅ Brand Shop UI with React, Angular, Netflix DGS GraphQL, Minio Image Upload and Resizing Server, Spring Security WebSockets and Keycloak Authorization Server
+#### ✅ eCommerce Platform with Axon Event Sourcing CQRS, MongoDB Event Store and Kafka Event Streaming
 
-## Available Scripts
+<ul style="list-style-type:disc">
+    <li>📖 This <b>Full-Stack Developer Template</b> provides fully functional Development Environment:</li>
+    <li>📖 <b>Event-Driven Spring Boot Microservices</b> with Axon Event Sourcing CQRS, MongoDB Event Store and Kafka Event Streaming</li>
+    <li>📖 <b>Swagger UI Gateway</b> with Keycloak Authorization</li>
+    <li>📖 <b>React And Angular UI</b> with Netflix DGS GraphQL, Minio Image Upload and Resizing Server, Keycloak Authorization and Secured Websockets</li>
+    <li>📖 Local <b>Docker</b> Development Environment</li>
+  <li>📖 Full <b>Technology Stack</b>:</li>
+  <ul>
+    <li>✅ <b>Swagger UI Gateway</b></li>
+    <li>✅ <b>React UI</b></li>
+    <li>✅ <b>Angular UI</b></li>
+    <li>✅ <b>Netflix DGS GraphQL</b></li>
+    <li>✅ <b>Minio Image Upload and Resizing Server</b></li>
+    <li>✅ <b>Spring Boot 3</b></li>
+    <li>✅ <b>Spring Cloud Gateway</b></li>
+    <li>✅ <b>Spring Security Websockets</b></li>
+    <li>✅ <b>Secured Websockets Messaging with JWT</b></li>
+    <li>✅ <b>Event-Driven Microservices</b></li>
+    <li>✅ <b>Axon Event Sourcing</b></li>
+    <li>✅ <b>MongoDB Event Store</b></li>
+    <li>✅ <b>Kafka Event Streaming</b></li>
+    <li>✅ <b>Axon CQRS</b></li>
+    <li>✅ <b>Axon Saga Transactions</b></li>
+    <li>✅ <b>CQRS Query Projection with PostgreSQL Database</b></li>
+    <li>✅ <b>Keycloak Oauth2 Authorization Server</b></li>
+    <li>✅ <b>Local Docker Environment</b></li>
+    <li>✅ <b>Remote Debugging</b></li>
+    <li>✅ <b>Zipkin Distributed Tracing</b></li>
+  </ul>
+</ul>
 
-In the project directory, you can run:
+### 📖 Links
 
-### `npm start`
+UI Repository is available Here: [Eshop UI](https://github.com/greeta-eshop-01/eshop-ui)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Spring Boot API Repository is available Here: [Eshop API](https://github.com/greeta-eshop-01/eshop-api)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+See original eShop Code for Full-Stack Template with Gradle + React and Angular UI: [Original eShop](https://github.com/hdimitrieski/e-shop)
 
-### `npm test`
+See previous Spring Boot Template for AWS Setup: [Twitter Kafka Analytics Platform](https://github.com/greeta-twitter-01/twitter-api)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 📖 Step By Step Guide
 
-### `npm run build`
+#### Local Docker Environment Setup:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+sh docker-start.sh
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- this script will build all spring boot docker images and start environment with your code changes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+sh docker-restart.sh
+```
 
-### `npm run eject`
+- this script will restart all docker containers without rebuilding images
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+sh docker-app-restart.sh order-processing
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- this script will rebuild spring boot docker image for `order-processing` application and restart application with rebuilt image
+- replace `order-processing` with the name of the application you want to rebuild and restart
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### React and Angular UI setup:
 
-## Learn More
+UI Repository is available Here: [Eshop UI](https://github.com/greeta-eshop-01/eshop-ui)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `ng-rest-client` Setup:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+export NODE_OPTIONS=--openssl-legacy-provider
+npm install
+ng serve
+```
+
+- `react-graphql-client` Setup:
+
+```
+npm install
+npm start
+```
+
+
+#### Local Docker Environment Acceptance Test:
+
+- open http://localhost:9000 in your Browser and switch between Swagger UI Pages
+
+- For authorized requests: click `Authorize` and use `admin/admin` or `user/user` for credentials (`clientId` should be `stock-app`)
+
+- open http://localhost:4200 in your Browser and test Angular UI 
+
+- open http://localhost:4201 in your Browser and test React GraphQL UI
+
+- Use `admin/admin` or `user/user` for credentials
+
+- Make sure that `Keycloak Authorization` and `WebSocket Connections` are working correctly for these pages
+
+- Warning! If Swagger UI fails to load on the first try, please, refresh the page!
+
+- Warning! Sometimes switching between Swagger UI pages doesn't refresh Swagger UI completely and you might see wrong REST endpoints: just refresh the page and continue
+
+- Warning! Sometimes REST endpoints return `504 Gateway Timeout`, just retry the REST API endpoint again
+
+- Congratulations! You successfully tested `Swagger UI Gateway`, `Angular UI` and `React GraphQL UI`
+
+
+### Remote Debugging
+
+![Configuration to debug a containerized Java application from IntelliJ IDEA](documentation/06-14.png)
+
+#### Minio Image Upload and Resizing Server
+
+- Minio Image Upload and Resizing Server is available here: http://localhost:8086/
+
+- Make sure that `customer-images` Bucket exists and contains Brand Product Images
+
+- You can download and browse images using this console
+
+
+#### Zipkin Server
+
+- Zipkin Server for Distributed Tracing is available here: http://localhost:9411/
